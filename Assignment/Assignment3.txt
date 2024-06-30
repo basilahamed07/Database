@@ -1,0 +1,335 @@
+## Lab Activity 1 
+Create a table STUDENT with under mentioned structure by using SQL Statement:
+===================================================================================================================================================================
+creating the structure of the table:
+CREATE TABLE Student (
+StdID INT(4) PRIMARY KEY, StdName VARCHAR(30) NOT NULL,
+Sex VARCHAR(1), Percentage DECIMAL(5,2), SClass INT ,
+Sec VARCHAR(1), Stream VARCHAR(10), DOB DATE );
+
+===================================================================================================================================================================
+
+
+INSERT INTO Student VALUES (1001, "AKSHRA AGARWAL",'FEMALE',70,11,"A","Science", "10/11/1996");
+
+===================================================================================================================================================================
+INSERT INTO Student (StdID, StdName, Sex, Percentage, SClass, Sec, Stream, DOB)
+VALUES
+(1002, 'ANJANI SHARMA', 'FEMALE', 75, 11, 'A', 'Commerce', '1996-09-18'),
+(1003, 'ANSHUL SAXENA', 'MALE', 78, 11, 'A', 'Commerce', '1996-11-19'),
+(1004, 'AISHWARYA SINGH', 'FEMALE', null, 11, 'A', 'Commerce', '1996-11-01'),
+(1005, 'AKRITI SAXENA', 'FEMALE', 76, 11, 'A', 'Commerce', '1996-09-20'),
+(1006, 'KHUSHI AGARWAL', 'FEMALE', null, 11, 'A', 'Commerce', '2003-09-14'),
+(1007, 'MAAHI AGARWAL', 'FEMALE', null, 11, 'A', 'Science', '1997-04-21'),
+(1008, 'MITALI GUPTA', 'FEMALE', 78, 12, 'A', 'Science', '1997-11-26'),
+(1009, 'NIKUNJ AGARWAL', 'MALE', 58, 12, 'A', 'Science', '1997-07-12'),
+(1010, 'PARKHI', 'FEMALE', 59, 12, 'A', 'Commerce', '1997-12-20'),
+(1011, 'PRAKHAR TIWARI', 'MALE', 43, 12, 'A', 'Science', '1997-04-22'),
+(1012, 'RAGHAV GANGWAR', 'MALE', 58, 12, 'A', 'Commerce', '1997-12-21'),
+(1013, 'SAHIL SARASWAT', 'MALE', 57, 12, 'A', 'Commerce', '1997-08-13'),
+(1014, 'SWATI MISHRA', 'FEMALE', null, 11, 'A', 'Science', '1996-08-13'),
+(1015, 'HARSH AGARWAL', 'MALE', 58, 11, 'B', 'Science', '2003-08-28'),
+(1016, 'HARSHIT KUMAR', 'MALE', 98, 11, 'B', 'Science', '2003-05-22'),
+(1017, 'JAHANVI KAPOOR', 'MALE', 65, 11, 'B', 'Science', '1997-01-10'),
+(1018, 'STUTI MISHRA', 'MALE', 66, 11, 'C', 'Commerce', '1996-01-10'),
+(1019, 'SURYANSH KUMAR AGARWAL', 'MALE', 85, 11, 'C', 'Commerce', '2007-08-22'),
+(1020, 'TANI RASTOGI', 'FEMALE', 75, 12, 'C', 'Commerce', '1998-01-15'),
+(1021, 'TANISHK GUPTA', 'MALE', 55, 12, 'C', 'Science', '1998-04-11'),
+(1022, 'TANMAY AGARWAL', 'MALE', 57, 11, 'C', 'Commerce', '1998-06-28'),
+(1023, 'YASH SAXENA', 'MALE', 79, 11, 'C', 'Science', '1998-03-13'),
+(1024, 'YESH DUBEY', 'MALE', 85, 12, 'C', 'Commerce', '1998-04-03');
+
+
+===================================================================================================================================================================
+
+
+## Lab Activity 2: 
+Open school database, then select student table and use following SQL statements.
+
+===================================================================================================================================================================
+TYPE THE STATEMENT, PRESS ENTER AND NOTE THE OUTPUT
+
+
+1 To display all the records form STUDENT table.:
+SELECT *
+FROM STUDENT;
+
+
+
+
+===================================================================================================================================================================
+
+2. To display ony name and date of birth from the table STUDENT.:
+SELECT StdName, DOB
+from student;
+
+
+
+
+
+===================================================================================================================================================================
+
+3)To display all students record where percentage is greater of equal to 80 FROM student table.
+
+SELECT * FROM student WHERE percentage >= 80;
+
+
+
+
+
+===================================================================================================================================================================
+4. To display student name, stream and percentage where percentage of student is more than 80
+
+SELECT StdName, Stream, Percentage WHERE percentage > 80;
+
+
+
+
+
+
+===================================================================================================================================================================
+5. To display all records of science students whose percentage is more than 75 form student table.
+SELECT * FORM student WHERE stream = ‘Science’ AND percentage > 75;
+
+
+
+
+
+
+
+
+===================================================================================================================================================================
+
+
+
+
+
+Lab Activity 3: 
+Open school database, then select student table and use following SQL statements. TYPE THE STATEMENT, PRESS ENTER AND NOTE THE OUTPUT
+
+
+
+1. To display the STUDENT table structure.
+DESCRIBE Student;
+
+
+
+
+
+===================================================================================================================================================================
+2. To add a column (FIELD)in the STUDENT table,for example TeacherID as VARCHAR(20);
+
+ALTER TABLE Student ADD TeacherID VARCHAR(20);
+
+
+
+
+
+
+===================================================================================================================================================================
+3. Type the statement
+DESC Student;
+
+
+
+
+
+
+
+
+
+===================================================================================================================================================================
+4. Type the statement and press enter key, note the new field that you have added as TeacherID
+
+SELECT * FROM student;
+
+
+
+
+
+
+
+
+===================================================================================================================================================================
+5. To modify the TeacherID data type form character to integer.
+
+
+ALTER TABLE Student MODIFY TeacherID INTEGER ;
+DESC Student;
+SELECT * FROM student;
+
+
+
+
+
+
+
+
+
+===================================================================================================================================================================
+Lab Activity 4
+1. To Drop (Delete) a field form a table. For e.g you wantto delete TeacherID field.
+
+
+
+ALTER TABLE Student DROP TeacherID;
+
+
+
+===================================================================================================================================================================
+
+2. To subtract 5 form all students percentage and display name and percentage.
+
+SELECT name, percentage - 5 FROM Student;
+
+
+
+===================================================================================================================================================================
+
+3. Using column alise for example we wantto display StdName as Student Name and DOB as Date of Birth
+then the statement will be.
+
+SELECT StdName AS "Student Name",
+DOB As “Date of Birth” FROM Student;
+
+
+
+
+
+===================================================================================================================================================================
+
+4. Display the name of all students whose stream is not Science
+
+SELECT StdNameFROMstudent
+WHERE Stream<>‘Science’;
+
+
+
+
+===================================================================================================================================================================
+
+5. Display all name and percentage where percentage is between 60 and 80
+
+SELECT StdName, percentage FROM student WHERE percentage >=60 AND
+percentage<=80 ;
+
+
+
+
+
+
+
+
+
+===================================================================================================================================================================
+Lab Activity 5:
+
+
+
+1. To change a studentname from SWATIMISHRA to SWATIVERMA whose StdID is 1014 and also change
+percentage 86.
+
+UPDATE Student SET StdName = ‘SWATI VERMA’, percentage = 86
+WHERE StdId = 1014;
+
+
+===================================================================================================================================================================
+
+2. To delete the records form student table where StdId is 1016.
+DELETE FROM Student WHERE StdID = 1016;
+
+
+
+===================================================================================================================================================================
+
+3. Type the following SQL statement and note the output.
+
+SELECT * FROM Student WHERE StdName LIKE 'G_' ;
+SELECT * FROM Student WHERE StdName='G';
+SELECT * FROM Student WHERE StdName LIKE 'G%' ;
+SELECT * WHERE Student WHERE StdName='%G%' ;
+
+
+
+===================================================================================================================================================================
+
+4. Display all the streams in student table.
+
+SELECT DISTINCT Stream FROM Student;
+
+
+
+===================================================================================================================================================================
+
+
+5. Note the output of the following statement.
+SELECT StdName, Sex, Stream FROM Student WHERE percentage BETWEEN 70 AND 80;
+
+
+
+
+
+===================================================================================================================================================================
+
+
+Do yourself:
+
+
+
+a)Write a query to display EName and Sal of employees whose salary are greater than or equal to 2200?
+
+
+select Ename , sal
+from employees
+where sal >= 2200;
+
+
+b)Write a query to display details of employs who are not getting commission?
+
+select *
+from employees
+where comm is null;
+
+c) Write a query to display employee name and salary of those employees who don’t have
+their salary in range of 2500 to 4000?
+
+select ename, sal
+from employee
+where sal between 2500 and 4000;
+
+
+4) d. Write a query to display the name, job title and salary of employees who don’t have manager?
+
+select ename, job , sal
+from employee
+where mgr is null
+
+e. Write a query to display the name of employee whose name contains “A” as third alphabet?
+
+select ename
+from employee
+where ename like "__A%";
+
+f. Write a query to display the name of employee whose name contains “T” as last alphabet?
+
+select ename 
+from employee
+where ename like "%L";
+
+g. Write a query to display the name of employee whose name contains ”M” as First and
+“L” as third alphabet?
+
+select ename
+from employee
+where ename like "M_L%";  
+
+
+h. Write a query to display details of employs with the text “Not given”, if commission is null?
+
+SELECT empno, ename, job, mgr, hiredate, sal,
+CASE
+WHEN comm IS NULL THEN 'Not given'
+ELSE comm
+END AS comm,
+deptno
+FROM empl;
